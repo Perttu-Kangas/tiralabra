@@ -1,0 +1,48 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# VSCode
+.vscode/
+
+# Netbrans
+nbproject/
+nbactions.xml
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Maven
+log/
+target/
+
+# Python
+__pycache__
+
+# PyTest
+.pytest_cache
+
+# Poetry
+poetry.lock
+
+# Coverage
+.coverage
+htmlcov
+
+# Mostly commands
+private.txt
+
+# Sqlite
+*/src/*.sqlite
+*/src/*.db
