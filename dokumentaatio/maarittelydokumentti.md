@@ -34,5 +34,5 @@ Nyt valinnaksi osui IDA* ja Dijkstra.
 * Opinto-ohjelma: Tietojenkäsittelytieteen kandidaatti
 
 ## Lähteet
-* https://en.wikipedia.org/wiki/Iterative_deepening_A*
-* https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
+* [https://en.wikipedia.org/wiki/Iterative_deepening_A*](https://en.wikipedia.org/wiki/Iterative_deepening_A*)
+* [https://en.wikipedia.org/wiki/Dijkstra's_algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
