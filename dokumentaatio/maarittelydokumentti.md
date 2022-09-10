@@ -23,7 +23,7 @@ Tavoitteena aikavaativuudeksi O(nm) ja tilavaativuudeksi on käytännössä nyky
 
 #### Dijkstra
 Tavoitteena aikavaativuudeksi O(n + m log n) ja tilavaativuudeksi O(n). Dijkstralle tulen
-tekemään toteuttamaan prioriteettijonon itse ohjeiden mukaisesti.
+tekemään prioriteettijonon itse ohjeiden mukaisesti.
 
 ## Muuta
 * Ohjelmointikieli: Python
