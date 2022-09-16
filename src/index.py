@@ -2,7 +2,14 @@ from tkinter import Tk, ttk, constants, Canvas
 from enum import Enum
 
 
+#
+# Ei vielä ole juurikaan dokumentointia, koska tulen vielä refaktoiroimaan
+# tämän kokonaan erillisiin luokkiin. Tässä on lähinnä pohja, millä testasin
+# piirtotyökalua.
+
+
 class GridType(Enum):
+    """Enum, joka määrittelee """
     NONE = "white"
     WALL = "black"
     START = "blue"
@@ -10,12 +17,17 @@ class GridType(Enum):
     VISITED = "gray"
 
 
-# GRID[x][y] = GridType enum
-GRID = []
-grid_size = 10
+width = 500
+height = 200
 
-width = 400
-height = 400
+grid_size = 25
+# GRID[y][x] = GridType enum
+grid_rows = int(width / grid_size)
+grid_cols = int(height / grid_size)
+GRID = [[GridType.NONE] * grid_rows] * grid_cols
+
+print(len(GRID), len(GRID[0]))
+print(GRID[0])
 
 current_type = GridType.WALL
 start_pos = None
@@ -69,27 +81,26 @@ frame.pack()
 def draw(event):
     global current_type, start_pos, end_pos
     x, y = (event.x // grid_size) * grid_size, (event.y // grid_size) * grid_size - grid_size
+    list_x, list_y = int(x / grid_size), int(y / grid_size)
 
     if current_type == GridType.START:
         if start_pos:
-            old_x, old_y = start_pos[0], start_pos[1]
-            canvas.create_rectangle(old_x, old_y, old_x + grid_size, old_y + grid_size, fill=GridType.NONE.value,
-                                    outline=GridType.NONE.value)
-        start_pos = [x, y]
-        canvas.create_rectangle(x, y, x + grid_size, y + grid_size, fill=str(current_type.value))
+            GRID[start_pos[1]][start_pos[0]] = GridType.NONE
+        start_pos = [list_x, list_y]
     elif current_type == GridType.END:
         if end_pos:
-            old_x, old_y = end_pos[0], end_pos[1]
-            canvas.create_rectangle(old_x, old_y, old_x + grid_size, old_y + grid_size, fill=GridType.NONE.value,
-                                    outline=GridType.NONE.value)
-        end_pos = [x, y]
-        canvas.create_rectangle(x, y, x + grid_size, y + grid_size, fill=str(current_type.value))
-    else:
-        canvas.create_rectangle(x, y, x + grid_size, y + grid_size, fill=str(current_type.value))
+            GRID[end_pos[1]][end_pos[0]] = GridType.NONE
+        end_pos = [list_x, list_y]
+
+    GRID[list_y][list_x] = current_type
+
+    canvas.create_rectangle(x, y, x + grid_size, y + grid_size, fill=str(current_type.value))
+
+    print(GRID[0])
 
 
 canvas = Canvas(window, width=width, height=height, background=GridType.NONE.value)
-canvas.pack()
+canvas.pack(expand=1, fill="both")
 canvas.bind("<B1-Motion>", draw)
 
 window.mainloop()
