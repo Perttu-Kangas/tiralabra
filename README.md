@@ -18,6 +18,8 @@ Sovelluksella vertaillaan ja visualisoidaan IDA* ja Dijkstra -reitinhakualgoritm
 2. Asenna riippuvuudet ``poetry install``
 3. Käynnistä sovellus ``poetry run invoke start``
 
+Ohjeet Poetryn asentamiseen sen omasta dokumentaatiosta [täältä](https://python-poetry.org/docs/).
+
 ## Komentorivitoiminnot
 
 ### Ohjelman suorittaminen
