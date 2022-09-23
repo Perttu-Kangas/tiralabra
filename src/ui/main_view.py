@@ -65,7 +65,7 @@ class MainView:
         self.canvas = Canvas(self.root, width=self.ui_logic.width, height=self.ui_logic.height,
                              background=str(GridType.NONE.value))
 
-        self.ui_logic.set_draw_rectangle(self.draw_rectangle)
+        self.ui_logic.draw_rectangle = self.draw_rectangle
 
         self.canvas.bind("<B1-Motion>", self.ui_logic.handle_motion)
 

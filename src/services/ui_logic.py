@@ -53,13 +53,6 @@ class UILogic:
         self.grid[y][x] = self.current_type
         self.draw_rectangle(x, y, self.current_type)
 
-    def set_draw_rectangle(self, draw_rectangle):
-        """Asettaa ui logikaalle metodin, mitä sen pitää kutsua halutessaan piirtää canvasiin
-
-        :param draw_rectangle: piirto metodi, args (x, y, GridType)
-        """
-        self.draw_rectangle = draw_rectangle
-
     def wall_type(self):
         """Vaihtaa nykyisen canvasissa käytetyn värin loppupisteen väriin
         """
