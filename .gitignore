@@ -38,7 +38,7 @@ poetry.lock
 
 # Coverage
 .coverage
-htmlcov
+#htmlcov
 
 # Mostly commands
 private.txt
