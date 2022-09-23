@@ -1,5 +1,24 @@
 # Viikkoraportti
 
+## Viikko 3 - 8h
+
+#### Edistyminen
+
+Projekti edistyi suunnitelmien mukaan, eli refaktoroin piirtotyökalun koodin, sekä toteutin Dijkstran.
+Sille pitää vielä itse toteuttaa prioriteettijono.  
+
+Lisäsin GitHub Pagesiin nähtäville [testikattavuuden](https://perttu-kangas.github.io/tiralabra/htmlcov/).   
+
+Siirsin samalla tämän repositoryn muiden koulujuttujen ohella omaan GitHub organisaatioonsa, helpottaakseen repojen organisointia.
+
+#### Oppiminen ja epäselvyydet
+
+Opin ainakin Pythonia kirjoittelemaan paremmin (kouluprojekteissa vain harjoittelen Pythonin käyttöä samalla).
+
+#### Tuleva viikko
+
+Tarkoituksena toteuttaa Dijkstralle oma prioriteettijono, sekä IDA* toiminta
+
 ## Viikko 2 - 5h
 
 #### Edistyminen
