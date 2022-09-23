@@ -27,6 +27,18 @@ class MainView:
     def initialize(self):
         """Alustaa näkymän"""
         self.frame = ttk.Frame(master=self.root)
+
+        idastar_button = ttk.Button(
+            master=self.frame,
+            text="IDA*",
+            command=self.ui_logic.start_idastar
+        )
+        dijkstra_button = ttk.Button(
+            master=self.frame,
+            text="Dijkstra",
+            command=self.ui_logic.start_dijkstra
+        )
+
         wall_button = ttk.Button(
             master=self.frame,
             text="Seinä",
@@ -43,9 +55,12 @@ class MainView:
             command=self.ui_logic.end_type
         )
 
-        wall_button.grid(row=0, column=0, sticky=constants.EW, padx=10, pady=10)
-        start_button.grid(row=0, column=1, sticky=constants.EW, padx=10, pady=10)
-        end_button.grid(row=0, column=2, sticky=constants.EW, padx=10, pady=10)
+        idastar_button.grid(row=0, column=0, sticky=constants.EW, padx=10, pady=10)
+        dijkstra_button.grid(row=0, column=1, sticky=constants.EW, padx=10, pady=10)
+
+        wall_button.grid(row=1, column=0, sticky=constants.EW, padx=10, pady=10)
+        start_button.grid(row=1, column=1, sticky=constants.EW, padx=10, pady=10)
+        end_button.grid(row=1, column=2, sticky=constants.EW, padx=10, pady=10)
 
         self.canvas = Canvas(self.root, width=self.ui_logic.width, height=self.ui_logic.height,
                              background=str(GridType.NONE.value))
