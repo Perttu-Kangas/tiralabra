@@ -5,21 +5,21 @@ from util.coordinates_helper import y_out_of_bounds, x_out_of_bounds, normalize
 
 class UILogic:
 
-    def __init__(self):
+    def __init__(self, width=400, height=400, grid_size=25):
         self.draw_rectangle = None
 
         self.current_type = GridType.WALL
         self.start_position = None
         self.end_position = None
 
-        self.width = 400
-        self.height = 400
-        self.grid_size = 25
+        self.width = width
+        self.height = height
+        self.grid_size = grid_size
 
         grid_rows = int(self.width / self.grid_size)
         grid_cols = int(self.height / self.grid_size)
 
-        self.grid = [[GridType.NONE] * grid_rows] * grid_cols
+        self.grid = [[GridType.NONE for _ in range(grid_cols)] for _ in range(grid_rows)]
 
     def start_dijkstra(self):
         print(self.start_position, self.end_position)
@@ -40,18 +40,40 @@ class UILogic:
             return
 
         if self.current_type == GridType.START:
-            if self.start_position:
-                self.grid[self.start_position[1]][self.start_position[0]] = GridType.NONE
-                self.draw_rectangle(self.start_position[0], self.start_position[1], GridType.NONE)
-            self.start_position = (x, y)
+            self.change_start(x, y)
         elif self.current_type == GridType.END:
-            if self.end_position:
-                self.grid[self.end_position[1]][self.end_position[0]] = GridType.NONE
-                self.draw_rectangle(self.end_position[0], self.end_position[1], GridType.NONE)
-            self.end_position = (x, y)
+            self.change_end(x, y)
+        else:
+            self.grid[y][x] = self.current_type
+            self.draw_rectangle(x, y, self.current_type)
 
-        self.grid[y][x] = self.current_type
-        self.draw_rectangle(x, y, self.current_type)
+    def change_start(self, x, y):
+        """Poistaa vanhan aloituspaikan sekä asettaa uuden annettuihin koordinaatteihin
+
+        :param x: x koordinaatti
+        :param y: y koordinaatti
+        """
+        if self.start_position:
+            self.grid[self.start_position[1]][self.start_position[0]] = GridType.NONE
+            self.draw_rectangle(self.start_position[0], self.start_position[1], GridType.NONE)
+
+        self.start_position = (x, y)
+        self.grid[y][x] = GridType.START
+        self.draw_rectangle(x, y, GridType.START)
+
+    def change_end(self, x, y):
+        """Poistaa vanhan loppupaikan sekä asettaa uuden annettuihin koordinaatteihin
+
+        :param x: x koordinaatti
+        :param y: y koordinaatti
+        """
+        if self.end_position:
+            self.grid[self.end_position[1]][self.end_position[0]] = GridType.NONE
+            self.draw_rectangle(self.end_position[0], self.end_position[1], GridType.NONE)
+
+        self.end_position = (x, y)
+        self.grid[y][x] = GridType.END
+        self.draw_rectangle(x, y, GridType.END)
 
     def wall_type(self):
         """Vaihtaa nykyisen canvasissa käytetyn värin loppupisteen väriin

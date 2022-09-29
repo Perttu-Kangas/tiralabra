@@ -29,6 +29,9 @@ class Dijkstra:
                         or y_out_of_bounds(self.grid, new_pos[1]):
                     continue
 
+                if self.grid[new_pos[1]][new_pos[0]] == GridType.WALL:
+                    continue
+
                 if new_pos not in dist:
 
                     self.ui_logic.draw_rectangle(new_pos[0], new_pos[1], GridType.VISITED)
