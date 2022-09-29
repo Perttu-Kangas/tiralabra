@@ -1,4 +1,5 @@
 from entities.dijkstra import Dijkstra
+from entities.idastar import IDAStar
 from util.enums import GridType
 from util.coordinates_helper import y_out_of_bounds, x_out_of_bounds, normalize
 
@@ -27,6 +28,8 @@ class UILogic:
         return -1
 
     def start_idastar(self):
+        print(self.start_position, self.end_position)
+        print(IDAStar(self, self.grid, self.start_position, self.end_position).find())
         return -1
 
     def handle_motion(self, event):

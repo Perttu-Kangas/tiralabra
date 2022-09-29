@@ -26,3 +26,14 @@ def normalize(grid_size, num):
     :return:
     """
     return num // grid_size
+
+
+def manhattan(start, end):
+    """https://en.wiktionary.org/wiki/Manhattan_distance
+
+    :param start: alkupiste (x, y)
+    :param end: loppupiste (x, y)
+    :return: Manhattan distance alun ja lopun välillä
+    """
+
+    return abs(end[0] - start[0]) + abs(end[1] - start[1])
