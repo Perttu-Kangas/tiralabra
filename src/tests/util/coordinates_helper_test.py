@@ -3,7 +3,7 @@ from util.coordinates_helper import *
 from util.enums import GridType
 
 
-class TestSnake(unittest.TestCase):
+class TestCoordinatesHelper(unittest.TestCase):
     def setUp(self):
         grid_rows = 5
         grid_cols = 8

@@ -2,6 +2,7 @@ from heapq import heappush, heappop
 
 from util.enums import GridType
 from util.coordinates_helper import y_out_of_bounds, x_out_of_bounds
+from util.heap import heappush, heappop
 
 
 class Dijkstra:
@@ -17,7 +18,7 @@ class Dijkstra:
         dist = {self.start: 0}
         heappush(heap, (0, self.start))
 
-        while len(heap) > 0:
+        while heap:
             cur_pos = heappop(heap)[1]
             if cur_pos == self.end:
                 return dist.get(cur_pos)
