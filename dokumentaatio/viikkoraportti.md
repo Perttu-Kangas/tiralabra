@@ -1,5 +1,30 @@
 # Viikkoraportti
 
+## Viikko 4 - 8h
+
+#### Edistyminen
+
+Projekti edistyi suunnitelmien mukaan, eli Dijkstralle prioriteettijonon toteutus, sekä IDA* toiminta.
+
+Lisäsin enemmän testejä sekä korjasin muutaman bugin.
+
+Suorituskykytestejä en vielä tehnyt, sillä algorithm ticker tulee käyttöön vasta ensi viikon palautukseen.
+
+#### Oppiminen ja epäselvyydet
+
+Tuli opittua IDA* toiminta, sekä perehdyttyä prioriteettijonon implementaation. Käytin pohjana
+Pythonin implementaatiota prioriteettijonosta kirjojen sijaan. Lisäksi tuli huomattua, että tämä EI luo
+uusia objekti referenssejä `[[GridType.NONE] * grid_rows] * grid_cols`, mutta tämä 
+tekee `[[GridType.NONE for _ in range(gridcols)] for  in range(grid_rows)]`.
+
+
+#### Tuleva viikko
+
+Tarkoituksena on ottaa algorithm ticker käyttöön, jolla pystytään tekemään suorituskykytestejä sekä keräämään
+statistiikkaa algoritmien toiminnasta. Lisäki sen jälkeen lisään testit algoritmeille, en ole tehnyt niitä vielä, 
+koska algorithm tickerin käyttöönotto muokkaa hieman algoritmien luokkia myös. Tarkoituksena olisi myös lisätä
+parhaimman polun piirto, kun se on löydetty myös visuaalisesti.
+
 ## Viikko 3 - 8h
 
 #### Edistyminen
