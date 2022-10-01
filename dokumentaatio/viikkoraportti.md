@@ -12,9 +12,9 @@ Suorituskykytestejä en vielä tehnyt, sillä algorithm ticker tulee käyttöön
 
 #### Oppiminen ja epäselvyydet
 
-Tuli opittua IDA* toiminta, sekä perehdyttyä prioriteettijonon implementaation. Käytin pohjana
-Pythonin implementaatiota prioriteettijonosta kirjojen sijaan. Lisäksi tuli huomattua, että tämä EI luo
-uusia objekti referenssejä `[[GridType.NONE] * grid_rows] * grid_cols`, mutta tämä 
+Tuli opittua IDA* toiminta, sekä perehdyttyä prioriteettijonon implementaation Pythonin implementaation, ja
+muiden [lähteiden](https://www.geeksforgeeks.org/heap-data-structure/) avulla. Lisäksi tuli huomattua, että 
+tämä EI luo uusia objekti referenssejä `[[GridType.NONE] * grid_rows] * grid_cols`, mutta tämä 
 tekee `[[GridType.NONE for _ in range(gridcols)] for  in range(grid_rows)]`.
 
 
