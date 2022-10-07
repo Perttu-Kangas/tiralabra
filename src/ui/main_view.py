@@ -82,6 +82,7 @@ class MainView:
                                      canvas_x + self.ui_logic.grid_size,
                                      canvas_y + self.ui_logic.grid_size,
                                      fill=str(grid_type.value))
+        self.canvas.update_idletasks()
 
     def to_canvas(self, num):
         """Muuttaa annetun koordinaatin canvasiin sopivaksi

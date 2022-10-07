@@ -7,3 +7,9 @@ class GridType(Enum):
     START = "blue"
     END = "green"
     VISITED = "gray"
+    FINAL_PATH = "yellow"
+
+
+class ResultType(Enum):
+    FOUND = ""
+    NOT_FOUND = ""

@@ -1,5 +1,6 @@
 from entities.dijkstra import Dijkstra
 from entities.idastar import IDAStar
+from services.algorithm_ticker import AlgorithmTicker
 from util.enums import GridType
 from util.coordinates_helper import y_out_of_bounds, x_out_of_bounds, normalize
 
@@ -23,14 +24,14 @@ class UILogic:
         self.grid = [[GridType.NONE for _ in range(grid_cols)] for _ in range(grid_rows)]
 
     def start_dijkstra(self):
-        print(self.start_position, self.end_position)
-        print(Dijkstra(self, self.grid, self.start_position, self.end_position).find())
-        return -1
+        ticker = AlgorithmTicker(self, self.grid, Dijkstra(self, self.grid, self.start_position, self.end_position,
+                                                           draw=self.draw_rectangle))
+        ticker.start_ticker()
 
     def start_idastar(self):
-        print(self.start_position, self.end_position)
-        print(IDAStar(self, self.grid, self.start_position, self.end_position).find())
-        return -1
+        ticker = AlgorithmTicker(self, self.grid, IDAStar(self, self.grid, self.start_position, self.end_position,
+                                                          draw=self.draw_rectangle))
+        ticker.start_ticker()
 
     def handle_motion(self, event):
         """Käsittelee canvasin motion eventin.
