@@ -7,8 +7,7 @@ from util.heap import heappush, heappop
 
 class Dijkstra:
 
-    def __init__(self, ui_logic, grid, start, end, draw=None):
-        self.ui_logic = ui_logic
+    def __init__(self, grid, start, end, draw=None):
         self.grid = grid
         self.start = start
         self.end = end

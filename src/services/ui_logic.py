@@ -24,12 +24,12 @@ class UILogic:
         self.grid = [[GridType.NONE for _ in range(grid_cols)] for _ in range(grid_rows)]
 
     def start_dijkstra(self):
-        ticker = AlgorithmTicker(self, self.grid, Dijkstra(self, self.grid, self.start_position, self.end_position,
+        ticker = AlgorithmTicker(self, self.grid, Dijkstra(self.grid, self.start_position, self.end_position,
                                                            draw=self.draw_rectangle))
         ticker.start_ticker()
 
     def start_idastar(self):
-        ticker = AlgorithmTicker(self, self.grid, IDAStar(self, self.grid, self.start_position, self.end_position,
+        ticker = AlgorithmTicker(self, self.grid, IDAStar(self.grid, self.start_position, self.end_position,
                                                           draw=self.draw_rectangle))
         ticker.start_ticker()
 
