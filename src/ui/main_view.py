@@ -68,6 +68,7 @@ class MainView:
         self.ui_logic.draw_rectangle = self.draw_rectangle
 
         self.canvas.bind("<B1-Motion>", self.ui_logic.handle_motion)
+        self.canvas.bind("<Button-1>", self.ui_logic.handle_motion)
 
     def draw_rectangle(self, x, y, grid_type):
         """Piirtää suorakulmion annettuihin koordinaatteihin.
