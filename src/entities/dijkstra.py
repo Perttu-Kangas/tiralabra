@@ -45,7 +45,10 @@ class Dijkstra:
                     self.draw(new_pos[0], new_pos[1], GridType.VISITED)
 
                 new_dist = self.dist.get(cur_pos, 0)[0] + 1
+
+                # Set cur_pos as parent position for backtracking the final path
                 self.dist[new_pos] = (new_dist, cur_pos)
+
                 heappush(self.heap, (new_dist, new_pos))
 
     def get_final_path(self):

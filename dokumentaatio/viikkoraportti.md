@@ -1,5 +1,24 @@
 # Viikkoraportti
 
+## Viikko 5 - 8h
+
+#### Edistyminen
+
+Projekti edistyi suunnitelmien mukaan, eli otin algorithm tickerin käyttöön sekä lisäsin testejä.
+Myös löydetyn polun piirto on nyt toteutettu.
+
+#### Oppiminen ja epäselvyydet
+
+Tällä viikolla ei oikein mitään uutta tullut.
+Lähinnä piti miettiä kuinka toteuttaa algorithm tickerin toiminnan.
+
+#### Tuleva viikko
+
+Tarkoituksena olisi ottaa huomioon saatu vertaispalaute.
+Myös visuaalisesti näkyville algoritmin suoritukseen kulunut aika ja askeleet.
+Pääpainona on kuitenkin dokumentointi tulevalla viikolla, 
+esimerkiski Dijkstra ja IDA* ei ole vielä juurikaan ollenkaan kommentoitu.
+
 ## Viikko 4 - 8h
 
 #### Edistyminen
@@ -16,7 +35,6 @@ Tuli opittua IDA* toiminta, sekä perehdyttyä prioriteettijonon implementaation
 muiden [lähteiden](https://www.geeksforgeeks.org/heap-data-structure/) avulla. Lisäksi tuli huomattua, että 
 tämä EI luo uusia objekti referenssejä `[[GridType.NONE] * grid_rows] * grid_cols`, mutta tämä 
 tekee `[[GridType.NONE for _ in range(gridcols)] for  in range(grid_rows)]`.
-
 
 #### Tuleva viikko
 

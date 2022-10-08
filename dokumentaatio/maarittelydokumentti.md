@@ -5,8 +5,7 @@ Sovelluksella on tarkoitus vertailla ja visualisoida IDA* sekä Dijkstran
 reitinhakua annetussa syötteessä.
 
 ## Toteutus
-Käyttäjä määrittelee alueelle koon, ja sen jälkeen piirtää
-siihen seiniä sekä valitsee lähtö- ja loppupaikan. Sen jälkeen voidaan
+Käyttäjä piirtää alueelle seiniä sekä valitsee lähtö- ja loppupaikan. Sen jälkeen voidaan
 valita joko visualisointi tai vertailu. Visualisoinnissa ohjelma piirtää valitun
 algoritmin toimintaa annetulle syötteelle. Vertaillessa algoritmeja suoritus 
 tapahtuu taustalla ilman visualisointia.
@@ -34,3 +33,4 @@ tekemään prioriteettijonon itse ohjeiden mukaisesti.
 ## Lähteet
 * [https://en.wikipedia.org/wiki/Iterative_deepening_A*](https://en.wikipedia.org/wiki/Iterative_deepening_A*)
 * [https://en.wikipedia.org/wiki/Dijkstra's_algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+* [https://www.cs.helsinki.fi/u/ahslaaks/tirakirja/](https://www.cs.helsinki.fi/u/ahslaaks/tirakirja/)
