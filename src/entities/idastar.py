@@ -1,4 +1,5 @@
 import sys
+import time
 
 from util.enums import GridType, ResultType
 from util.coordinates_helper import y_out_of_bounds, x_out_of_bounds, manhattan
@@ -14,6 +15,7 @@ class IDAStar:
         self.final_path = None
 
         # Init
+        self.start_time = -1
         self.bound = manhattan(self.start, self.end)
         self.path = [self.start]
         self.t = -1
@@ -33,6 +35,15 @@ class IDAStar:
         node = path[-1]
         f = g + manhattan(node, self.end)
 
+        if self.start_time != -1:
+
+            # If over 10 seconds, cancel IDA*
+            if time.time_ns() - self.start_time > 10000000000:
+                self.final_path = ResultType.NOT_FOUND
+                return ResultType.NOT_FOUND
+        else:
+            self.start_time = time.time_ns()
+
         if f > bound:
             return f
 
@@ -40,7 +51,7 @@ class IDAStar:
             self.final_path = self.path, self.bound
             return ResultType.FOUND
 
-        min = sys.maxsize
+        minimum = sys.maxsize
 
         for move in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
             new_pos = (node[0] + move[0], node[1] + move[1])
@@ -63,9 +74,9 @@ class IDAStar:
                 if t == ResultType.FOUND:
                     return ResultType.FOUND
 
-                if t < min:
-                    min = t
+                if t < minimum:
+                    minimum = t
 
                 path.pop()
 
-        return min
+        return minimum
