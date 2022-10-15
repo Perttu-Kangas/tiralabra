@@ -1,5 +1,22 @@
 # Viikkoraportti
 
+## Viikko 6 - 5h
+
+#### Edistyminen
+
+Projekti ei tällä viikolla täysin edistynyt niin kuin ajattelin.
+Koodin dokumentointi on kuitenkin hyvin pitkälti nyt valmis.
+
+#### Oppiminen ja epäselvyydet
+
+Tällä viikolla ei oikein mitään uutta tullut.
+
+#### Tuleva viikko (loppupalautus / ennen demotilaisuutta)
+
+Tarkoituksena olisi toteuttaa `performance_test.py` isolle ja pienelle kartalle seinien kanssa sekä ilman niitä.
+Tällä pitäisi pystyä hyvin havainnollistamaan, millaisessa tilanteessa Dijkstra on parempi kuin IDA* ja toisinpäin.
+Myös kaiken muunkin dokumentoinnin viimeistely.
+
 ## Viikko 5 - 8h
 
 #### Edistyminen

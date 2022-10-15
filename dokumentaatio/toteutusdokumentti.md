@@ -25,15 +25,15 @@ index.py
 
 ## Saavutetut aika- ja tilavaativuudet
 
-todo (viikko 6)
+todo (loppupalautus)
 
 ## Suorityskyky- ja O-analyysivertailu
 
-todo, dijkstra parempi, jos esteitä on paljon, muuten IDA* (viikko 6)
+todo, dijkstra parempi, jos esteitä on paljon, muuten IDA* (loppupalautus)
 
 ## Työn mahdolliset puutteet ja parannusehdotukset
 
-todo (viikko 6)
+todo (loppupalautus)
 
 ## Lähteet
 * [https://en.wikipedia.org/wiki/Iterative_deepening_A*](https://en.wikipedia.org/wiki/Iterative_deepening_A*)

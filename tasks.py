@@ -29,3 +29,7 @@ def autopep(ctx):
 @task
 def lint(ctx):
     ctx.run("pylint src", pty=True)
+
+@task
+def performance(ctx):
+    ctx.run("python3 src/performance_test.py", pty=True)

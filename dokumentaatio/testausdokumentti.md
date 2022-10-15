@@ -6,7 +6,7 @@ Yksikkötestit voidaan suorittaa komennolla `poetry run invoke test`. Testikatta
 voi tehdä komennolla `poetry run invoke coreage-report`
 
 Testit ovat jo melko kattavat, kuten [testikattavuudesta](https://perttu-kangas.github.io/tiralabra/htmlcov/) näkyy.
-Tarkoituksena parantaa testejä viikolla 6.
+Tarkoituksena parantaa testejä loppupalautukseen.
 
 
 
