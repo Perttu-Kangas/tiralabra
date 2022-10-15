@@ -51,7 +51,8 @@ class UILogic:
             self.change_end(x, y)
         else:
             self.grid[y][x] = self.current_type
-            self.draw_rectangle(x, y, self.current_type)
+            if self.draw_rectangle:
+                self.draw_rectangle(x, y, self.current_type)
 
     def change_start(self, x, y):
         """Poistaa vanhan aloituspaikan sekä asettaa uuden annettuihin koordinaatteihin
@@ -62,12 +63,14 @@ class UILogic:
         if self.start_position:
             self.grid[self.start_position[1]
                       ][self.start_position[0]] = GridType.NONE
-            self.draw_rectangle(
-                self.start_position[0], self.start_position[1], GridType.NONE)
+            if self.draw_rectangle:
+                self.draw_rectangle(
+                    self.start_position[0], self.start_position[1], GridType.NONE)
 
         self.start_position = (x, y)
         self.grid[y][x] = GridType.START
-        self.draw_rectangle(x, y, GridType.START)
+        if self.draw_rectangle:
+            self.draw_rectangle(x, y, GridType.START)
 
     def change_end(self, x, y):
         """Poistaa vanhan loppupaikan sekä asettaa uuden annettuihin koordinaatteihin
@@ -78,12 +81,14 @@ class UILogic:
         if self.end_position:
             self.grid[self.end_position[1]
                       ][self.end_position[0]] = GridType.NONE
-            self.draw_rectangle(
-                self.end_position[0], self.end_position[1], GridType.NONE)
+            if self.draw_rectangle:
+                self.draw_rectangle(
+                    self.end_position[0], self.end_position[1], GridType.NONE)
 
         self.end_position = (x, y)
         self.grid[y][x] = GridType.END
-        self.draw_rectangle(x, y, GridType.END)
+        if self.draw_rectangle:
+            self.draw_rectangle(x, y, GridType.END)
 
     def wall_type(self):
         """Vaihtaa nykyisen canvasissa käytetyn värin loppupisteen väriin

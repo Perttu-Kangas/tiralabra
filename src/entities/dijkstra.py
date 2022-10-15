@@ -18,15 +18,20 @@ class Dijkstra:
         heappush(self.heap, (0, self.start))
 
     def step(self):
+        """Ottaa yhden askeleen algoritmille
+        """
         if not self.heap:
+            # All that are reachable have been visited if heap is empty
             self.final_path = ResultType.NOT_FOUND
             return
 
         cur_pos = heappop(self.heap)[1]
         if cur_pos == self.end:
+            # Found end pos, set final path and return
             self.final_path = self.get_final_path(), self.dist.get(cur_pos)[0]
             return
 
+        # Move 1 in all directions
         for move in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
             new_pos = (cur_pos[0] + move[0], cur_pos[1] + move[1])
 
@@ -37,6 +42,7 @@ class Dijkstra:
             if self.grid[new_pos[1]][new_pos[0]] == GridType.WALL:
                 continue
 
+            # If not yet visited
             if new_pos not in self.dist:
 
                 if self.draw:
@@ -47,9 +53,13 @@ class Dijkstra:
                 # Set cur_pos as parent position for backtracking the final path
                 self.dist[new_pos] = (new_dist, cur_pos)
 
+                # Push the new pos to heap
                 heappush(self.heap, (new_dist, new_pos))
 
     def get_final_path(self):
+        """
+        :return: löydetty reitti listana
+        """
         path = []
         xy = self.end
 
