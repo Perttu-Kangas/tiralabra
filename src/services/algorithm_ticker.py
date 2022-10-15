@@ -40,11 +40,13 @@ class AlgorithmTicker:
             time.sleep(self.step_interval)
 
         if self.algorithm.final_path == ResultType.NOT_FOUND:
-            print(f"{self.time_in_ns * 0.000001}ms {self.steps_taken} steps NOT_FOUND distance")
+            print(
+                f"{self.time_in_ns * 0.000001}ms {self.steps_taken} steps NOT_FOUND distance")
             return
 
         self.draw_path(self.algorithm.final_path[0], GridType.FINAL_PATH)
-        print(f"{self.time_in_ns * 0.000001}ms {self.steps_taken} steps {self.algorithm.final_path[1]} distance")
+        print(
+            f"{self.time_in_ns * 0.000001}ms {self.steps_taken} steps {self.algorithm.final_path[1]} distance")
 
     def draw_at(self, x, y, grid_type):
         self.ui_logic.draw_rectangle(x, y, grid_type)

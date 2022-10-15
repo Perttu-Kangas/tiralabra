@@ -55,11 +55,15 @@ class MainView:
             command=self.ui_logic.end_type
         )
 
-        idastar_button.grid(row=0, column=0, sticky=constants.EW, padx=10, pady=10)
-        dijkstra_button.grid(row=0, column=1, sticky=constants.EW, padx=10, pady=10)
+        idastar_button.grid(
+            row=0, column=0, sticky=constants.EW, padx=10, pady=10)
+        dijkstra_button.grid(
+            row=0, column=1, sticky=constants.EW, padx=10, pady=10)
 
-        wall_button.grid(row=1, column=0, sticky=constants.EW, padx=10, pady=10)
-        start_button.grid(row=1, column=1, sticky=constants.EW, padx=10, pady=10)
+        wall_button.grid(row=1, column=0, sticky=constants.EW,
+                         padx=10, pady=10)
+        start_button.grid(
+            row=1, column=1, sticky=constants.EW, padx=10, pady=10)
         end_button.grid(row=1, column=2, sticky=constants.EW, padx=10, pady=10)
 
         self.canvas = Canvas(self.root, width=self.ui_logic.width, height=self.ui_logic.height,

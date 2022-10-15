@@ -1,5 +1,3 @@
-from heapq import heappush, heappop
-
 from util.enums import GridType, ResultType
 from util.coordinates_helper import y_out_of_bounds, x_out_of_bounds
 from util.heap import heappush, heappop

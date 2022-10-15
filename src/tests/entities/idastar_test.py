@@ -30,7 +30,8 @@ class TestIDAStar(unittest.TestCase):
         while not self.idastar.final_path:
             self.idastar.step()
 
-        self.assertEqual(self.idastar.final_path[0], [(1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (2, 4), (3, 4), (3, 3)])
+        self.assertEqual(self.idastar.final_path[0], [
+                         (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (2, 4), (3, 4), (3, 3)])
         self.assertEqual(self.idastar.final_path[1], 7)
 
     def test_not_found(self):

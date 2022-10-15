@@ -21,7 +21,8 @@ class UILogic:
         grid_rows = int(self.width / self.grid_size)
         grid_cols = int(self.height / self.grid_size)
 
-        self.grid = [[GridType.NONE for _ in range(grid_cols)] for _ in range(grid_rows)]
+        self.grid = [[GridType.NONE for _ in range(
+            grid_cols)] for _ in range(grid_rows)]
 
     def start_dijkstra(self):
         ticker = AlgorithmTicker(self, self.grid, Dijkstra(self.grid, self.start_position, self.end_position,
@@ -39,7 +40,8 @@ class UILogic:
 
         :param event: canvasin motion event
         """
-        x, y = normalize(self.grid_size, event.x), normalize(self.grid_size, event.y)
+        x, y = normalize(self.grid_size, event.x), normalize(
+            self.grid_size, event.y)
         if x_out_of_bounds(self.grid, x) or y_out_of_bounds(self.grid, y):
             return
 
@@ -58,8 +60,10 @@ class UILogic:
         :param y: y koordinaatti
         """
         if self.start_position:
-            self.grid[self.start_position[1]][self.start_position[0]] = GridType.NONE
-            self.draw_rectangle(self.start_position[0], self.start_position[1], GridType.NONE)
+            self.grid[self.start_position[1]
+                      ][self.start_position[0]] = GridType.NONE
+            self.draw_rectangle(
+                self.start_position[0], self.start_position[1], GridType.NONE)
 
         self.start_position = (x, y)
         self.grid[y][x] = GridType.START
@@ -72,8 +76,10 @@ class UILogic:
         :param y: y koordinaatti
         """
         if self.end_position:
-            self.grid[self.end_position[1]][self.end_position[0]] = GridType.NONE
-            self.draw_rectangle(self.end_position[0], self.end_position[1], GridType.NONE)
+            self.grid[self.end_position[1]
+                      ][self.end_position[0]] = GridType.NONE
+            self.draw_rectangle(
+                self.end_position[0], self.end_position[1], GridType.NONE)
 
         self.end_position = (x, y)
         self.grid[y][x] = GridType.END
