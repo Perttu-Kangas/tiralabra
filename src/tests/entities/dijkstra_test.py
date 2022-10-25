@@ -5,6 +5,9 @@ from util.enums import GridType, ResultType
 
 
 class TestDijkstra(unittest.TestCase):
+
+    # Testattu lisäki testaudokumentissa mainituilla syötteillä manuaalisesti.
+
     def setUp(self):
         # 5x5 grid
 

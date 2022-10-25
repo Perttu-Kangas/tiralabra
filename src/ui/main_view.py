@@ -69,11 +69,13 @@ class MainView:
 
         self.visits_var = StringVar()
         self.visits_var.set("Vierailtu: 0")
-        visits_label = ttk.Label(master=self.frame, textvariable=self.visits_var)
+        visits_label = ttk.Label(
+            master=self.frame, textvariable=self.visits_var)
 
         self.distance_var = StringVar()
         self.distance_var.set("Pituus: 0")
-        distance_label = ttk.Label(master=self.frame, textvariable=self.distance_var)
+        distance_label = ttk.Label(
+            master=self.frame, textvariable=self.distance_var)
 
         idastar_button.grid(
             row=0, column=0, sticky=constants.EW, padx=10, pady=10)
@@ -89,8 +91,10 @@ class MainView:
         end_button.grid(row=1, column=2, sticky=constants.EW, padx=10, pady=10)
 
         time_label.grid(row=2, column=0, sticky=constants.EW, padx=10, pady=10)
-        visits_label.grid(row=2, column=1, sticky=constants.EW, padx=10, pady=10)
-        distance_label.grid(row=2, column=2, sticky=constants.EW, padx=10, pady=10)
+        visits_label.grid(
+            row=2, column=1, sticky=constants.EW, padx=10, pady=10)
+        distance_label.grid(
+            row=2, column=2, sticky=constants.EW, padx=10, pady=10)
 
         self.canvas = Canvas(self.root, width=self.ui_logic.width, height=self.ui_logic.height,
                              background=str(GridType.NONE.value))

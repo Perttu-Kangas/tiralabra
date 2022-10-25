@@ -88,8 +88,10 @@ class AlgorithmTicker:
             counter += 1
 
         print(self.ui_logic.start_position, self.ui_logic.end_position)
-        print(f"total: visits={self.visits}, time={self.time_in_ns * 0.000001}ms")
-        print(f"avg: visits={self.visits / times}, time={self.time_in_ns * 0.000001 / times}ms")
+        print(
+            f"total: visits={self.visits}, time={self.time_in_ns * 0.000001}ms")
+        print(
+            f"avg: visits={self.visits / times}, time={self.time_in_ns * 0.000001 / times}ms")
 
     def get_time_in_ms(self):
         """
