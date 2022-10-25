@@ -1,5 +1,6 @@
 from util.enums import GridType, ResultType
 import time
+import math
 
 
 class AlgorithmTicker:
@@ -67,7 +68,7 @@ class AlgorithmTicker:
         """
         :return: algoritmin suoritusaika millisekunteina
         """
-        return self.time_in_ns * 0.000001
+        return round(self.time_in_ns * 0.000001, 1)
 
     def get_distance(self):
         """

@@ -9,6 +9,7 @@ class UILogic:
 
     def __init__(self, width=400, height=400, grid_size=25):
         self.draw_rectangle = None
+        self.update_stats = None
 
         self.current_type = GridType.WALL
         self.start_position = None
@@ -28,15 +29,13 @@ class UILogic:
         ticker = AlgorithmTicker(self, self.grid, Dijkstra(self.grid, self.start_position, self.end_position,
                                                            draw=self.draw_rectangle))
         ticker.start_ticker()
-
-        print(ticker.get_time_in_ms(), ticker.get_distance(), ticker.visits)
+        self.update_stats(ticker.get_time_in_ms(), ticker.visits, ticker.get_distance())
 
     def start_idastar(self):
         ticker = AlgorithmTicker(self, self.grid, IDAStar(self.grid, self.start_position, self.end_position,
                                                           draw=self.draw_rectangle))
         ticker.start_ticker()
-
-        print(ticker.get_time_in_ms(), ticker.get_distance(), ticker.visits)
+        self.update_stats(ticker.get_time_in_ms(), ticker.visits, ticker.get_distance())
 
     def handle_motion(self, event):
         """Käsittelee canvasin motion eventin.
@@ -108,3 +107,15 @@ class UILogic:
         """Vaihtaa nykyisen canvasissa käytetyn värin loppupisteen väriin
         """
         self.current_type = GridType.END
+
+    def reset_grid(self):
+        """Piirtää gridistä kaiken pois
+        """
+
+        self.start_position = None
+        self.end_position = None
+
+        for y in range(len(self.grid)):
+            for x in range(len(self.grid[y])):
+                self.grid[y][x] = GridType.NONE
+                self.draw_rectangle(x, y, GridType.NONE)
