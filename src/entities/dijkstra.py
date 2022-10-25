@@ -13,7 +13,13 @@ class Dijkstra:
         self.final_path = None
         self.add_visit = None
 
-        # Init
+        self.heap = None
+        self.dist = None
+        self.init()
+
+    def init(self):
+        """Alustaa algoritmin
+        """
         self.heap = []
         self.dist = {self.start: (0, None)}
         heappush(self.heap, (0, self.start))

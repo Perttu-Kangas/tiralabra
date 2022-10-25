@@ -1,6 +1,5 @@
 from util.enums import GridType, ResultType
 import time
-import math
 
 
 class AlgorithmTicker:
@@ -18,13 +17,15 @@ class AlgorithmTicker:
 
     def instant_find(self):
         """Suorittaa algoritmin välittömästi.
-        Hyödyllinen
+        Poistaa käytöstä piirtämiset
         """
 
         # Reset stat variables
         self.time_in_ns = 0
         self.visits = 0
         self.algorithm.add_visit = self.new_visit
+        self.algorithm.draw = None
+        self.algorithm.init()
 
         current_time = time.time_ns()
         while not self.algorithm.final_path:
@@ -44,6 +45,7 @@ class AlgorithmTicker:
         self.time_in_ns = 0
         self.visits = 0
         self.algorithm.add_visit = self.new_visit
+        self.algorithm.init()
 
         # Loop till final path is found (or not found)
         while not self.algorithm.final_path:

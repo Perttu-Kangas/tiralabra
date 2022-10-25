@@ -15,7 +15,15 @@ class IDAStar:
         self.final_path = None
         self.add_visit = None
 
-        # Init
+        self.start_time = -1
+        self.bound = -1
+        self.path = None
+        self.t = -1
+        self.init()
+
+    def init(self):
+        """Alustaa algoritmin
+        """
         self.start_time = -1
         self.bound = manhattan(self.start, self.end)
         self.path = [self.start]
