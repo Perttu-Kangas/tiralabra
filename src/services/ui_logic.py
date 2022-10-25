@@ -29,10 +29,14 @@ class UILogic:
                                                            draw=self.draw_rectangle))
         ticker.start_ticker()
 
+        print(ticker.get_time_in_ms(), ticker.get_distance(), ticker.visits)
+
     def start_idastar(self):
         ticker = AlgorithmTicker(self, self.grid, IDAStar(self.grid, self.start_position, self.end_position,
                                                           draw=self.draw_rectangle))
         ticker.start_ticker()
+
+        print(ticker.get_time_in_ms(), ticker.get_distance(), ticker.visits)
 
     def handle_motion(self, event):
         """Käsittelee canvasin motion eventin.

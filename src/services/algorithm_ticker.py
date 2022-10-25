@@ -13,7 +13,7 @@ class AlgorithmTicker:
         self.step_interval = step_interval
 
         self.time_in_ns = 0
-        self.steps_taken = 0
+        self.visits = 0
 
     def instant_find(self):
         """Suorittaa algoritmin välittömästi.
@@ -22,12 +22,12 @@ class AlgorithmTicker:
 
         # Reset stat variables
         self.time_in_ns = 0
-        self.steps_taken = 0
+        self.visits = 0
+        self.algorithm.add_visit = self.new_visit
 
         current_time = time.time_ns()
         while not self.algorithm.final_path:
             self.algorithm.step()
-            self.steps_taken += 1
         self.time_in_ns += time.time_ns() - current_time
 
     def start_ticker(self):
@@ -41,7 +41,8 @@ class AlgorithmTicker:
 
         # Reset stat variables
         self.time_in_ns = 0
-        self.steps_taken = 0
+        self.visits = 0
+        self.algorithm.add_visit = self.new_visit
 
         # Loop till final path is found (or not found)
         while not self.algorithm.final_path:
@@ -51,7 +52,6 @@ class AlgorithmTicker:
             self.algorithm.step()
 
             self.time_in_ns += time.time_ns() - current_time
-            self.steps_taken += 1
 
             # Wait some before starting next step so
             # algorithm can be visualized better
@@ -103,3 +103,8 @@ class AlgorithmTicker:
         for y in range(len(self.ui_logic.grid)):
             for x in range(len(self.ui_logic.grid[y])):
                 self.ui_logic.draw_rectangle(x, y, self.ui_logic.grid[y][x])
+
+    def new_visit(self):
+        """Lisää yhden vierailun
+        """
+        self.visits += 1

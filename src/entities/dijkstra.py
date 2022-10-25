@@ -5,12 +5,13 @@ from util.heap import heappush, heappop
 
 class Dijkstra:
 
-    def __init__(self, grid, start, end, draw=None):
+    def __init__(self, grid, start, end, draw=None, add_visit=None):
         self.grid = grid
         self.start = start
         self.end = end
         self.draw = draw
         self.final_path = None
+        self.add_visit = None
 
         # Init
         self.heap = []
@@ -47,6 +48,9 @@ class Dijkstra:
 
                 if self.draw:
                     self.draw(new_pos[0], new_pos[1], GridType.VISITED)
+
+                if self.add_visit:
+                    self.add_visit()
 
                 new_dist = self.dist.get(cur_pos, 0)[0] + 1
 

@@ -98,7 +98,3 @@ class TestHeap(unittest.TestCase):
         self.assertEqual(self.heap[3], 5)
         self.assertEqual(self.heap[4], 10)
         self.assertEqual(self.heap[5], 4)
-
-    def test_up(self):
-        # todo
-        self.assertEqual(1, 1)

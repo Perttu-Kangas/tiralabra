@@ -7,12 +7,13 @@ from util.coordinates_helper import y_out_of_bounds, x_out_of_bounds, manhattan
 
 class IDAStar:
 
-    def __init__(self, grid, start, end, draw=None):
+    def __init__(self, grid, start, end, draw=None, add_visit=None):
         self.grid = grid
         self.start = start
         self.end = end
         self.draw = draw
         self.final_path = None
+        self.add_visit = None
 
         # Init
         self.start_time = -1
@@ -83,6 +84,9 @@ class IDAStar:
 
                 if self.draw:
                     self.draw(new_pos[0], new_pos[1], GridType.VISITED)
+
+                if self.add_visit:
+                    self.add_visit()
 
                 path.append(new_pos)
 
