@@ -6,9 +6,8 @@ reitinhakua annetussa syötteessä.
 
 ## Toteutus
 Käyttäjä piirtää alueelle seiniä sekä valitsee lähtö- ja loppupaikan. Sen jälkeen voidaan
-valita joko visualisointi tai vertailu. Visualisoinnissa ohjelma piirtää valitun
-algoritmin toimintaa annetulle syötteelle. Vertaillessa algoritmeja suoritus 
-tapahtuu taustalla ilman visualisointia.
+valita joko visualisoida algoritmin toimintaa. Visualisoinnissa ohjelma piirtää valitun
+algoritmin toimintaa annetulle syötteelle.
 
 ## Algoritmit
 Tarkoituksena on löytää lyhin reitti kahden paikan välillä annetussa syötteessä.
@@ -18,10 +17,10 @@ parempi kuin Dijkstra ja toisinpäin.
 Mikäli aikaa jää, niin vertailuun lisätään myös A*.
 
 #### IDA*
-Tavoitteena aikavaativuudeksi O(nm) ja tilavaativuudeksi on käytännössä nykyinen polku.
+Tavoitteena aikavaativuudeksi `O(nm)` ja tilavaativuudeksi on käytännössä nykyinen polku.
 
 #### Dijkstra
-Tavoitteena aikavaativuudeksi O(n + m log n) ja tilavaativuudeksi O(n). Dijkstralle tulen
+Tavoitteena aikavaativuudeksi `O(n + m log n)` ja tilavaativuudeksi `O(n + m)`. Dijkstralle tulen
 tekemään prioriteettijonon itse ohjeiden mukaisesti.
 
 ## Muuta

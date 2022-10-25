@@ -2,7 +2,7 @@
 Sovelluksella vertaillaan ja visualisoidaan IDA* ja Dijkstra -reitinhakualgoritmeja.
 
 ## Julkaisu
-- [Viimeisin](https://github.com/DeeCaaD/tiralabra/releases/latest/)
+- [Viimeisin](https://github.com/Perttu-Kangas/tiralabra/releases/latest/)
 
 ## Dokumentaatio
 

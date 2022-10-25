@@ -20,6 +20,7 @@ class Dijkstra:
     def init(self):
         """Alustaa algoritmin
         """
+        self.final_path = None
         self.heap = []
         self.dist = {self.start: (0, None)}
         heappush(self.heap, (0, self.start))

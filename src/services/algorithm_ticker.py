@@ -15,50 +15,6 @@ class AlgorithmTicker:
         self.time_in_ns = 0
         self.visits = 0
 
-    def instant_find(self, times):
-        """Suorittaa algoritmin välittömästi.
-        Poistaa käytöstä piirtämiset, ja tulostaa keskivertoja
-        suorituksista.
-
-        :param times: kuinka monta kertaa algoritmi suoritetaan
-        """
-
-        # Reset stat variables
-        self.time_in_ns = 0
-        self.visits = 0
-        self.algorithm.add_visit = self.new_visit
-        self.algorithm.draw = None
-
-        distance = -2
-        counter = 0
-
-        total_visits = 0
-        total_time = 0
-        while counter < times:
-
-            current_time = time.time_ns()
-
-            self.algorithm.init()
-            while not self.algorithm.final_path:
-                self.algorithm.step()
-
-            self.time_in_ns += time.time_ns() - current_time
-
-            total_visits += self.visits
-            total_time += self.time_in_ns
-
-            # Check distance is same
-            if distance == -2:
-                distance = self.get_distance()
-            elif distance != self.get_distance():
-                print("broken", distance, self.get_distance())
-                break
-
-            counter += 1
-
-        print(f"total: visits:{total_visits}, time={total_time * 0.000001}ms")
-        print(f"avg: visits={total_visits / times}, time={total_time * 0.000001 / times}ms")
-
     def start_ticker(self):
         """Aloittaa algorithmin looppauksen annetulla askelvälillä (def: 25ms)
         Reitti piirretään automaattisesti gridille.
@@ -92,6 +48,48 @@ class AlgorithmTicker:
 
         if self.algorithm.draw:
             self.draw_path(self.algorithm.final_path[0], GridType.FINAL_PATH)
+
+    def instant_find(self, times):
+        """Suorittaa algoritmin välittömästi.
+        Poistaa käytöstä piirtämiset, ja tulostaa keskivertoja
+        suorituksista.
+
+        :param times: kuinka monta kertaa algoritmi suoritetaan
+        """
+
+        # Reset stat variables
+        self.time_in_ns = 0
+        self.visits = 0
+        self.algorithm.add_visit = self.new_visit
+        self.algorithm.draw = None
+
+        distance = -2
+        counter = 0
+
+        while counter < times:
+
+            print("Looping ", counter)
+
+            current_time = time.time_ns()
+
+            self.algorithm.init()
+            while not self.algorithm.final_path:
+                self.algorithm.step()
+
+            self.time_in_ns += time.time_ns() - current_time
+
+            # Check distance is same
+            if distance == -2:
+                distance = self.get_distance()
+            elif distance != self.get_distance():
+                print("broken", distance, self.get_distance())
+                break
+
+            counter += 1
+
+        print(self.ui_logic.start_position, self.ui_logic.end_position)
+        print(f"total: visits={self.visits}, time={self.time_in_ns * 0.000001}ms")
+        print(f"avg: visits={self.visits / times}, time={self.time_in_ns * 0.000001 / times}ms")
 
     def get_time_in_ms(self):
         """

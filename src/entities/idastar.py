@@ -24,6 +24,7 @@ class IDAStar:
     def init(self):
         """Alustaa algoritmin
         """
+        self.final_path = None
         self.start_time = -1
         self.bound = manhattan(self.start, self.end)
         self.path = [self.start]
