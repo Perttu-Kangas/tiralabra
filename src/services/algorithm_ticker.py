@@ -15,9 +15,12 @@ class AlgorithmTicker:
         self.time_in_ns = 0
         self.visits = 0
 
-    def instant_find(self):
+    def instant_find(self, times):
         """Suorittaa algoritmin välittömästi.
-        Poistaa käytöstä piirtämiset
+        Poistaa käytöstä piirtämiset, ja tulostaa keskivertoja
+        suorituksista.
+
+        :param times: kuinka monta kertaa algoritmi suoritetaan
         """
 
         # Reset stat variables
@@ -25,12 +28,28 @@ class AlgorithmTicker:
         self.visits = 0
         self.algorithm.add_visit = self.new_visit
         self.algorithm.draw = None
-        self.algorithm.init()
 
         current_time = time.time_ns()
-        while not self.algorithm.final_path:
-            self.algorithm.step()
-        self.time_in_ns += time.time_ns() - current_time
+
+        distance = -2
+        counter = 0
+        while counter < times:
+
+            self.algorithm.init()
+            while not self.algorithm.final_path:
+                self.algorithm.step()
+
+            self.time_in_ns += time.time_ns() - current_time
+
+            if distance == -2:
+                distance = self.get_distance()
+            elif distance != self.get_distance():
+                print("broken", distance, self.get_distance())
+                break
+
+            counter += 1
+
+        print(f"avg: visits={self.visits / times}, time={self.time_in_ns / times * 0.000001}ms")
 
     def start_ticker(self):
         """Aloittaa algorithmin looppauksen annetulla askelvälillä (def: 25ms)
