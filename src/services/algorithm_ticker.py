@@ -29,11 +29,14 @@ class AlgorithmTicker:
         self.algorithm.add_visit = self.new_visit
         self.algorithm.draw = None
 
-        current_time = time.time_ns()
-
         distance = -2
         counter = 0
+
+        total_visits = 0
+        total_time = 0
         while counter < times:
+
+            current_time = time.time_ns()
 
             self.algorithm.init()
             while not self.algorithm.final_path:
@@ -41,6 +44,10 @@ class AlgorithmTicker:
 
             self.time_in_ns += time.time_ns() - current_time
 
+            total_visits += self.visits
+            total_time += self.time_in_ns
+
+            # Check distance is same
             if distance == -2:
                 distance = self.get_distance()
             elif distance != self.get_distance():
@@ -49,7 +56,8 @@ class AlgorithmTicker:
 
             counter += 1
 
-        print(f"avg: visits={self.visits / times}, time={self.time_in_ns / times * 0.000001}ms")
+        print(f"total: visits:{total_visits}, time={total_time * 0.000001}ms")
+        print(f"avg: visits={total_visits / times}, time={total_time * 0.000001 / times}ms")
 
     def start_ticker(self):
         """Aloittaa algorithmin looppauksen annetulla askelvälillä (def: 25ms)
