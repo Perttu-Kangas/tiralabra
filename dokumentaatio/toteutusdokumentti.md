@@ -76,7 +76,7 @@ avg: visits=2347.0, time=10.1496199ms
 #### Paljon seiniä sisältävä 500x500 ruudukko, missä yhden ruudun koko on 10
 Vasen alanurkka aloituspiste (1, 48), ja oikea ylänurkka lopetuspiste (48, 1).  
 HUOM. tämä toistettiin vain `5` kertaa kummallekkin algoritmille `100` sijasta, koska
-IDA* hyvin todennäköisesti ei löydä nopeasti reittiä. IDA* etsintäaika on rajattu 10s.
+IDA* hyvin todennäköisesti ei löydä nopeasti reittiä. IDA* etsintäaika on rajattu 10s.  
 ![walls500x500x10](kuvat/walls500x500x10.png)
 
 IDA*
