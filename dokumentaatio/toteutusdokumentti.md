@@ -99,8 +99,10 @@ jos esteitä on paljon, niin IDA* ei välttämättä löydä järkevässä ajass
 
 ## Työn mahdolliset puutteet ja parannusehdotukset
 
-Työhön voisi listä A*, joka on käytännössä Dijkstra heuristiikalla. IDA* voisi myös lisätä enemmän ja parempia
+Työhön voisi lisätä A*, joka on käytännössä Dijkstra heuristiikalla. IDA* voisi myös lisätä enemmän ja parempia
 heuristiikkoja. Kartan lataus netistä olisi myös hyvä lisä sekä alueen koon muuttaminen suoraan käyttöliittymästä.
+Lisäksi mahdollisesti voisi lisätä maastoa, jossa siirtymiset 1:n sijasta olisivat raskaampia (esim. 3), jolloin Dijkstran
+minimikeolla olisi käyttöä, nyt sillä ei käytännössä ole.
 
 ## Lähteet
 * [https://en.wikipedia.org/wiki/Iterative_deepening_A*](https://en.wikipedia.org/wiki/Iterative_deepening_A*)
