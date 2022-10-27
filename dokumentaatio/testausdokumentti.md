@@ -5,7 +5,9 @@
 Yksikkötestit voidaan suorittaa komennolla `poetry run invoke test`. Testikattavuusraportin
 voi tehdä komennolla `poetry run invoke coverage-report`
 
-Yksikkötestit ovat melko kattavat, kuten [testikattavuudesta](https://perttu-kangas.github.io/tiralabra/htmlcov/) näkyy.
+Yksikkötestit ovat melko kattavat, kuten [testikattavuudesta](https://perttu-kangas.github.io/tiralabra/htmlcov/) näkyy.  
+
+Lisäksi algoritmien oikeellisuutta on testattu `src/tests/entities/correctness_test.py`.  
 
 ## Algoritmien testaus
 
